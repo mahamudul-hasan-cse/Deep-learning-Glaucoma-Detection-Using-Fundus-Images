@@ -1,0 +1,22 @@
+project_name: Explainable Glaucoma Detection
+segmentation:
+  model: U-Net
+  dataset: REFUGE2
+  image_size: 512
+
+classification:
+  model: EfficientNet-B3
+  dataset: ACRIMA
+  threshold:
+    vCDR: 0.6
+
+metrics:
+  segmentation:
+    - Dice
+    - IoU
+  classification:
+    - Accuracy
+    - Precision
+    - Recall
+    - F1-score
+    - ROC-AUC
