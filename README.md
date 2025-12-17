@@ -7,7 +7,6 @@ Glaucoma detection using segmentation and classification
 This project presents an **end-to-end, explainable deep learning pipeline** for automated **glaucoma detection** using retinal fundus images.  
 The system combines **medical image segmentation**, **clinical feature extraction (CDR)**, and **deep learning classification**.
 
----
 
 ## 🎯 Objective
 
@@ -17,8 +16,6 @@ The primary objective of this project is to detect glaucoma by:
 3. Classifying eyes as **Glaucoma** or **Non-Glaucoma**
 
 This approach closely follows **real ophthalmology practice** and improves model explainability.
-
----
 
 ## 🗂️ Datasets Used
 
@@ -32,7 +29,6 @@ This approach closely follows **real ophthalmology practice** and improves model
 - Fundus images
 - Pixel-level masks for optic disc and optic cup
 
----
 
 ### 2️⃣ ACRIMA Dataset (Classification)
 - Purpose: Glaucoma / Non-Glaucoma classification
@@ -46,7 +42,6 @@ This approach closely follows **real ophthalmology practice** and improves model
 
 ⚠️ Datasets are **not included** in this repository due to size and license restrictions.
 
----
 
 ## 🧠 Methodology Overview
 
@@ -54,8 +49,6 @@ This approach closely follows **real ophthalmology practice** and improves model
 - Resize all images to **512 × 512**
 - Normalize pixel values to **[0, 1]**
 - Apply contrast enhancement and vessel suppression
-
----
 
 ### 🔹 Step 2: Optic Disc & Cup Segmentation
 - Model: **U-Net**
@@ -69,8 +62,6 @@ This approach closely follows **real ophthalmology practice** and improves model
 **Why segmentation?**  
 Glaucoma is a **structural disease**, and changes in the optic cup and disc are key clinical indicators.
 
----
-
 ### 🔹 Step 3: Cup-to-Disc Ratio (CDR) Computation
 From segmentation masks, the following were computed:
 - Vertical CDR
@@ -79,16 +70,12 @@ From segmentation masks, the following were computed:
 
 A **vCDR ≥ 0.6** is used as a glaucoma risk indicator (based on clinical literature).
 
----
-
 ### 🔹 Step 4: Glaucoma Classification
 - Model: **EfficientNet-B3**
 - Pretrained on ImageNet
 - Fine-tuned on ACRIMA dataset
 - Input: Fundus images
 - Output: Glaucoma / Non-Glaucoma
-
----
 
 ## 📊 Evaluation Metrics
 
@@ -105,8 +92,6 @@ A **vCDR ≥ 0.6** is used as a glaucoma risk indicator (based on clinical liter
 - ROC-AUC
 - Confusion Matrix
 
----
-
 ## ✅ Results Summary
 
 ### 🔹 Segmentation (REFUGE2)
@@ -120,8 +105,6 @@ A **vCDR ≥ 0.6** is used as a glaucoma risk indicator (based on clinical liter
 - ROC-AUC: **~0.99**
 
 These results indicate strong generalization while avoiding unrealistic overfitting.
-
----
 
 ## 🧪 Implementation
 
